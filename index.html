@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Text to Speech</title>
+  <style>
+    body { background: #1a1a2e; height: 100vh; display: flex; justify-content: center; align-items: center; margin: 0; }
+    .tts { width: 400px; background: #0f0f23; padding: 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+    textarea { width: 100%; height: 100px; padding: 12px; border-radius: 8px; background: #16213e; color: white; border: none; margin-bottom: 15px; }
+    button { background: #8338ec; color: white; width: 100%; padding: 12px; border: none; border-radius: 8px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="tts">
+    <h3>Text to Speech</h3>
+    <textarea id="text" placeholder="Enter text to speak...">Hello, I am your assistant.</textarea>
+    <button onclick="speak()">Speak</button>
+  </div>
+  <script>
+    function speak() {
+      const utterance = new SpeechSynthesisUtterance(document.getElementById('text').value);
+      utterance.rate = 1;
+      speechSynthesis.speak(utterance);
+    }
+  </script>
+</body>
+</html>
